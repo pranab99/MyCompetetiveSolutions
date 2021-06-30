@@ -1,0 +1,2 @@
+*max_element (first_index, last_index);          //max element in a vector
+*min_element (first_index, last_index);          //min element in a vector
