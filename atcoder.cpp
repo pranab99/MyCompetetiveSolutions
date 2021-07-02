@@ -10,8 +10,29 @@ float roundoff(float value, unsigned char prec) {
 
 void solve() {
 
+   ll  c, j;
+   cin >> c >> j;
+   for(int i = 1;; i++) {
+      if(i & 1) {
+
+         j -= i;
+         c += i;
+
+      } else {
+         c -= i;
+         j += i;
+      }
+      if(c == 0) {
+         cout << "Joey";
+         break;
+      }
+      if(j == 0) {
+         cout << "Chandler";
+         break;
+      }
 
 
+   }
 }
 
 signed main() {
