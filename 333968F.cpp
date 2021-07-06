@@ -3,17 +3,43 @@
 #define ll long long
 using namespace std;
 
-float roundoff(float value, unsigned char prec) {
-	float pow_10 = pow(10.0f, (float)prec);
-	return round(value * pow_10) / pow_10;
-}
-
-
 
 
 void solve() {
 
+	ll n, k, minsum = INT_MAX, index = 0, sum = 0,j=0;
+
+	cin >> n >> k;
+
+
+
+	vector<int> v;
+	for(int i = 0; i < n; i++) {
+
+		int a;
+		cin >> a;
+		v.push_back(a);
+		sum+=a;
+
+		if(i-j+1==k)
+		{
+			if(sum<minsum)
+			{
+				minsum=sum;
+				index=j;
+			}
+			sum-=v[j];
+			j++;
+		}
+
+
+	}
+
+
 	
+
+	cout << index+1;
+
 
 }
 
