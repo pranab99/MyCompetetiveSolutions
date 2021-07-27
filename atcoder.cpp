@@ -3,36 +3,29 @@
 #define ll long long
 using namespace std;
 
-float roundoff(float value, unsigned char prec) {
-   float pow_10 = pow(10.0f, (float)prec);
-   return round(value * pow_10) / pow_10;
+void printSubsequence(string input, string output)
+{
+
+    if (input.empty()) {
+        cout << output << endl;
+        return;
+    }
+ 
+
+    printSubsequence(input.substr(1), output + input[0]);
+ 
+
+    printSubsequence(input.substr(1), output);
 }
 
 void solve() {
+ string s,c="chokudai";
 
-   ll  c, j;
-   cin >> c >> j;
-   for(int i = 1;; i++) {
-      if(i & 1) {
+cin>>s;
+ printSubsequence(s,c);
 
-         j -= i;
-         c += i;
-
-      } else {
-         c -= i;
-         j += i;
-      }
-      if(c == 0) {
-         cout << "Joey";
-         break;
-      }
-      if(j == 0) {
-         cout << "Chandler";
-         break;
-      }
-
-
-   }
+  
+ 
 }
 
 signed main() {
