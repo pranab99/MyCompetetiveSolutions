@@ -14,17 +14,34 @@ void solve() {
  
 	int n;
 	cin>>n;
-	int a[n],no=0,zo=0;
+	int a[n],f=0,z=0;
 	for (int i = 0; i < n; ++i)
 	{
 	   cin>>a[i];
-	  if(a[i]==5)no++;
-	  if(a[i]==0)zo++;
+	  if(a[i]==5)f++;
+	  if(a[i]==0)z++;
 
 	}
   
-  if(90%(5*no)==0)
-  	cout<<no;
+      if(f==n)
+      	cout<<-1;
+      else
+      {
+      	string maxi;
+      	int ct=f/9*9;
+      	while(ct--)maxi+="5";
+      	if(!maxi.empty())
+      	{ 
+      		int m=z-1;
+      		while(m--)
+      		{
+      			maxi+="0";
+      		}
+      	}
+         maxi+="0";
+      	cout<<maxi;
+
+      }
 }
  
  
@@ -41,7 +58,7 @@ signed main() {
 #endif
  
 	int t = 1;
-	cin>>t;
+	//cin>>t;
  
 	while(t--) {
 		solve();
