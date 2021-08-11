@@ -3,25 +3,15 @@
 using namespace std;
 void solve()
 {
-    long long n;
-    cin >> n;
-    int count = 0;
-    while (n != 0)
+    int n;
+    cin>>n;
+    int a[n];
+    for (int i = 0; i < n; ++i)
     {
-        if (n % 10 == 4 || n % 10 == 7)
-        {
-            count += 1;
-        }
-        n /= 10;
+        cin>>a[i];
     }
-    if (count == 4 || count == 7)
-    {
-        cout << "YES" << endl;
-    }
-    else
-    {
-        cout << "NO" << endl;
-    }
+
+    cout<<sizeof(a);
         }
 signed main()
 {
