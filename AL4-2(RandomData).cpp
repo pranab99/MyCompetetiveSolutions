@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void swapping(int &a, int &b) {    
+void swapping(int &a, int &b) {
 	int temp;
 	temp = a;
 	a = b;
@@ -63,17 +63,17 @@ void mergeSort(int *array, int l, int r) {
 
 void solve() {
 
- int n;
-   cin >> n;
-   int arr[n];
-   for(int i = 0; i<n; i++) {
-      arr[i] = (rand() % n) + 1;
-   }
-   cout << "Array before Sorting: ";
-   display(arr, n);
-   mergeSort(arr, 0, n-1);     //(n-1) for last index
-   cout << "Array after Sorting: ";
-   display(arr, n);
+	int n;
+	cin >> n;
+	int arr[n];
+	for(int i = 0; i < n; i++) {
+		arr[i] = (rand() % n) + 1;
+	}
+	cout << "Array before Sorting: ";
+	display(arr, n);
+	mergeSort(arr, 0, n - 1);   //(n-1) for last index
+	cout << "Array after Sorting: ";
+	display(arr, n);
 
 }
 
