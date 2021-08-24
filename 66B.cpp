@@ -13,40 +13,47 @@ float roundoff(float value, unsigned char prec) {
 
 void solve() {
 
-	int n, k, windowSum = 0, minSum = INT_MAX;
-	cin >> n >> k;
-	int arr[n];
-	for( int i = 0; i < n; i++) {
-		cin >> arr[i];
+	int n, ct = 0,z;
+	cin >> n;
+	int a[n];
+	for (int i = 0; i < n ; ++i) {
+		cin >> a[i];
 	}
 
-	for(int i = 0 ; i < k ; i++) {
-		windowSum += arr[i];
-
+	if(n == 1) {
+		cout << 1;
+		return;
 	}
+	int maximumWater = INT_MIN;
+	for(int i = 0; i < n ; ++i) {
+		ct = 1;// to include the value of i
+		 z = i;
+		for(int j = i + 1; j < n; ++j) {
+			if(a[j] <= a[z])ct++;
+			else {
+				break;
+			}
+			z++;
 
-	minSum = windowSum;
-	int index = k - 1;
-
-
-	for(int i = k ; i < n; i++) {
-		windowSum += arr[i];
-		windowSum -= arr[i - k];
-
-		if(windowSum < minSum) {
-			minSum = windowSum;
-			index = i;
 		}
 
+		z = i;
+
+		for(int k = i - 1; k >= 0 ; --k) {
+
+			if(a[k] <= a[z])ct++;
+			else
+				break;
+			z--;
 
 
+		}
+
+		maximumWater = max(ct, maximumWater);
+		
 	}
 
-
-	cout << index - k + 2;
-
-
-
+	cout << maximumWater;
 
 }
 

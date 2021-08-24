@@ -8,44 +8,29 @@ float roundoff(float value, unsigned char prec) {
 	return round(value * pow_10) / pow_10;
 }
 
+ void dec(int n){
 
+ 	if(n==0)return ;
+ 		dec(n-1);
+ 	cout<<n <<" ";
+ 
+ }
+
+ void inc(int n ,int i){
+ 	if(i==n+1)return;
+ 	cout<<i<<" ";
+ 	inc(n,i+1);
+ }
 
 
 void solve() {
+    
+   int n,i=1;
+   cin>>n;
+  dec(n);
 
-	int n, k, windowSum = 0, minSum = INT_MAX;
-	cin >> n >> k;
-	int arr[n];
-	for( int i = 0; i < n; i++) {
-		cin >> arr[i];
-	}
-
-	for(int i = 0 ; i < k ; i++) {
-		windowSum += arr[i];
-
-	}
-
-	minSum = windowSum;
-	int index = k - 1;
-
-
-	for(int i = k ; i < n; i++) {
-		windowSum += arr[i];
-		windowSum -= arr[i - k];
-
-		if(windowSum < minSum) {
-			minSum = windowSum;
-			index = i;
-		}
-
-
-
-	}
-
-
-	cout << index - k + 2;
-
-
+  cout<<"\n";
+  inc(n,i);
 
 
 }
@@ -74,3 +59,4 @@ signed main() {
 
 	return 0;
 }
+
