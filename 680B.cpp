@@ -12,49 +12,38 @@ float roundoff(float value, unsigned char prec) {
 
 
 void solve() {
-
-	int n, ct = 0, z;
-	cin >> n;
-	int a[n];
-	for (int i = 0; i < n ; ++i) {
-		cin >> a[i];
+	int n, a, ct = 0, iterations = 0;
+	cin >> n >> a;
+	int arr[n];
+	for(int i = 0; i < n; ++i) {
+		cin >> arr[i];
 	}
 
-	if(n == 1) {
-		cout << 1;
-		return;
-	}
-	int maximumWater = INT_MIN;
-	for(int i = 0; i < n ; ++i) {
-		
-		ct = 1;// to include the value of i
-		z = i;
-		for(int j = i + 1; j < n; ++j) {
-			if(a[j] <= a[z])ct++;
-			else {
-				break;
+
+	if(arr[a - 1] == 1)ct = 1;
+	else ct = 0;
+	arr[a - 1] = 0;
+	int z = a - 1;
+	for (int i = 1; i < n; ++i) {
+		int right, left;
+		right = z + i;
+		left = z - i;
+		if(left >= 0 || right < n) {
+			if(left >= 0 && right < n) {
+				if(arr[left] && arr[right])ct += 2;
+			} 
+			else if(left>=0){
+				if(arr[left])ct++;
 			}
-			z++;
-
+			else if(right<n){
+				if(arr[right])ct++;
+			}
 		}
-
-		z = i;
-
-		for(int k = i - 1; k >= 0 ; --k) {
-
-			if(a[k] <= a[z])ct++;
-			else
-				break;
-			z--;
-
-
-		}
-
-		maximumWater = max(ct, maximumWater);
-
 	}
 
-	cout << maximumWater;
+
+	cout << ct;
+
 
 }
 

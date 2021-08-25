@@ -8,53 +8,46 @@ float roundoff(float value, unsigned char prec) {
 	return round(value * pow_10) / pow_10;
 }
 
+void f(vector<int> &v, int start) {
+	if(v[start] > v[start + 1] and start + 1 < v.size())
+		swap(v[start], v[start + 1]);
+}
 
 
 
 void solve() {
-
-	int n, ct = 0, z;
+	int n;
 	cin >> n;
-	int a[n];
-	for (int i = 0; i < n ; ++i) {
-		cin >> a[i];
-	}
+	vector<int> v(n);
+	for(auto &x : v) cin >> x;
 
-	if(n == 1) {
-		cout << 1;
+	int ans = 0;
+	int start = 1;
+	if(is_sorted(v.begin(), v.end())) {
+		cout << 0 << endl;
 		return;
 	}
-	int maximumWater = INT_MIN;
-	for(int i = 0; i < n ; ++i) {
-		
-		ct = 1;// to include the value of i
-		z = i;
-		for(int j = i + 1; j < n; ++j) {
-			if(a[j] <= a[z])ct++;
-			else {
-				break;
+	while(!is_sorted(v.begin(), v.end())) {
+		if(start & 1) {
+			for(int k = 0; k < n - 1; k++) {
+				if(k % 2 == 0) {
+					f(v, k);
+				}
 			}
-			z++;
-
+		} else {
+			for(int k = 0; k < n; k++) {
+				if(k % 2 == 1) {
+					f(v, k);
+				}
+			}
 		}
-
-		z = i;
-
-		for(int k = i - 1; k >= 0 ; --k) {
-
-			if(a[k] <= a[z])ct++;
-			else
-				break;
-			z--;
-
-
-		}
-
-		maximumWater = max(ct, maximumWater);
-
+		start++;
+		ans++;
 	}
 
-	cout << maximumWater;
+	cout << ans ;
+
+
 
 }
 
@@ -71,7 +64,7 @@ signed main() {
 #endif
 
 	int t = 1;
-	// cin>>t;
+	cin >> t;
 
 	while(t--) {
 		solve();
