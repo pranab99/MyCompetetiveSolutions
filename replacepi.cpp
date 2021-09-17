@@ -8,21 +8,33 @@ float roundoff(float value, unsigned char prec) {
 	return round(value * pow_10) / pow_10;
 }
 
+void replacePi(string s){
 
+	if(s.length() == 0){        // base case
+		return;
+	}
+
+	if(s[0]=='p' && s[1] == 'i'){
+		cout<<"3.14";
+	}
+	else
+		cout<<s[0]<<s[1];
+
+	string remaining= s.substr(2);
+
+	replacePi(remaining);
+
+}
 
 
 void solve() {
 
-	int s;
-	cin >> s;
-	if(s >= 30 && s <= 50) {
-		cout << 'D';
-	} else if(s > 50 && s <= 60)
-		cout << 'C';
-	else if(s > 60 && s <= 80)
-		cout << 'B';
-	else if(s > 80 && s <= 100)
-		cout << 'A';
+ string s;
+ cin >> s;
+
+ int length= s.length();
+ replacePi(s);
+
 
 }
 
