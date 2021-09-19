@@ -1,1 +1,8 @@
-3.143.14icsjxcnjs3.14sjfnbsjfda3.143.14
+Move from A to C
+Move from A to B
+Move from C to B
+Move from A to C
+Move from B to A
+Move from B to C
+Move from A to C
+
